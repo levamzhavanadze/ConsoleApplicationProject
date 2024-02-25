@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplicationProject
 {
+    /// <summary>
+    /// This class is responsible for reusable validations
+    /// </summary>
     internal class Validators
     {
+        /// <summary>
+        /// Method validates if user input is decimal number or not.
+        /// </summary>
+        /// <returns>Decimal/returns>
         public decimal DecimalUserInputValidation()
         {
             var userInput = Console.ReadLine();
@@ -22,6 +29,10 @@ namespace ConsoleApplicationProject
             return _a;
         }
 
+        /// <summary>
+        /// Method validates if user input is null or only spaces
+        /// </summary>
+        /// <returns>String</returns>
         public string ValidateUserInputOnEmptyString()
         {
             var userInput = Console.ReadLine();
@@ -34,25 +45,49 @@ namespace ConsoleApplicationProject
             return userInput;
         }
 
+        /// <summary>
+        /// Method is helper method where user is asked to enter intager value to continue process
+        /// </summary>
+        /// <returns>targetInt</returns>
+        public int ParseUserInputToInt(string usrInput)
+        {
+            var _userInput = usrInput;
+            int targetInt = -2147483648;
 
+            //Until user entered value is not integer, user will be in this loop. Exception is default value of variable -2147483648
+            while (int.TryParse(_userInput, out targetInt) == false || targetInt == -2147483648)
+            {
+                Console.WriteLine($"Please enter valid input, you entered: <{_userInput}>");
+                _userInput = Console.ReadLine();
+            }
+            return targetInt;
+        }
 
+        /// <summary>
+        /// Method validates if user choose correct math operator or not. 
+        /// </summary>
+        /// <param name="usrOperator"></param>
+        /// <returns>String</returns>
         public string CalculatorOperatorValidation(string usrOperator)
         {
-
+            //Check if user entered string is one character or it is some string. If length is more then 1 asking user to enter predefined math operator character
             while (usrOperator.Length != 1)
             {
                 Console.WriteLine("Please enter the operator, it can not be the text");
                 usrOperator = ValidateUserInputOnEmptyString();
             }
 
+            //Defining user selected operator ASCII number
             var input = (int)char.Parse(usrOperator);
+
             var wrongOperator = false;
-            // = 47; * = 42; - = 45; + = 43
-            if (input != 47 && input != 42 && input != 45 && input != 43 )
+            // Checking if user selected operator is withing predefined options: / = 47; * = 42; - = 45; + = 43
+            if (input != 47 && input != 42 && input != 45 && input != 43)
             {
                 wrongOperator = true;
             }
 
+            //validate if operator is not from predefine list, asking user to select correct one again and validate it.
             while (wrongOperator == true)
             {
                 Console.WriteLine("Wrong operator, please enter correct one: + - * /");
@@ -67,21 +102,16 @@ namespace ConsoleApplicationProject
         }
 
         /// <summary>
-        /// Method is helper method where user is asked to enter intager value to continue process
+        /// Method is asking user to input Int
         /// </summary>
-        /// <returns>targetInt</returns>
-        public int ParseUserInputToInt(string usrInput)
+        /// <returns>Int</returns>
+        public int AskUserToEnterInt()
         {
-            var _userInput = usrInput;
-            int targetInt = -99999999;
+            var usrInput = ValidateUserInputOnEmptyString();
+            int parsedInt = ParseUserInputToInt(usrInput);
 
-            //Until user entered value is not integer, user will be in this loop. Exception is default value of variable -99999999
-            while (int.TryParse(_userInput, out targetInt) == false || targetInt == -99999999)
-            {
-                Console.WriteLine($"Please enter valid input, you entered: <{_userInput}>");
-                _userInput = Console.ReadLine();
-            }
-            return targetInt;
+            return parsedInt;
+
         }
 
     }

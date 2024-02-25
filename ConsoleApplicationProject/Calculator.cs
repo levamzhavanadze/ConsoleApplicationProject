@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplicationProject
 {
+    /// <summary>
+    /// This class is responsible to get 2 decimal numbers and perform math operation on them and return the expresion as string.
+    /// </summary>
     internal class Calculator
     {
         //public decimal _a;

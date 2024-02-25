@@ -8,6 +8,9 @@ using System.Xml;
 
 namespace ConsoleApplicationProject
 {
+    /// <summary>
+    /// This class is reponsible for Calculator User interface, where user is asked to enter two different numbers, choose math operation and validate user inputs.
+    /// </summary>
     internal class CalculatorUI
     {
         public void UserUI()
@@ -16,7 +19,7 @@ namespace ConsoleApplicationProject
             Validators userInput = new Validators();
 
             Console.WriteLine("Hello, this is calculator, where you can perform following math calculation: + - * /");
-
+            
             Console.WriteLine("Please enter the 1st number");
             decimal _a = userInput.DecimalUserInputValidation();
 
@@ -30,6 +33,7 @@ namespace ConsoleApplicationProject
             usrOperator = userInput.CalculatorOperatorValidation(usrOperator);
 
 
+            //Based on operation, invoking the Calculator class corresponding method and printing the result.
             if (usrOperator == "+")
             {
                 Console.WriteLine(calculator.Sum(_a, _b));
@@ -42,6 +46,7 @@ namespace ConsoleApplicationProject
             {
                 Console.WriteLine(calculator.Mult(_a, _b));
             }
+            //Validate if b number is 0. If so asking user to enter different number and printing result.
             else if (usrOperator == "/")
             {
                 if (_b == 0)
@@ -49,7 +54,6 @@ namespace ConsoleApplicationProject
                     Console.WriteLine($"Can not divide {_a} on {_b}, please enter different 2nd number ");
                     while (_b == 0)
                     {
-
                         _b = userInput.DecimalUserInputValidation();
                         if (_b == 0)
                         {

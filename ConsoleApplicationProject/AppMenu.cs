@@ -7,19 +7,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplicationProject
 {
+    /// <summary>
+    /// This class represents main entrance point for user into the application, where user can choose needed program.
+    /// </summary>
     internal class AppMenu
     {
-
+        /// <summary>
+        /// Asking user to choose program
+        /// </summary>
         public void Menu()
         {
             Console.WriteLine("Please select application by entering sequence number: " +
                 "\n\t1. Calculator" +
                 "\n\t2. Guess The Number" +
-                "\n\t3. " +
+                "\n\t3. Hangman" +
                 "\n\t4. " +
                 "\n\t5. " +
                 "\n\t6. Exit"
                 );
+            //Handle user selection
             try
             {
                 Validators validators = new Validators();
@@ -35,6 +41,8 @@ namespace ConsoleApplicationProject
                 }
                 else if (userMenuSelection == 2)
                 {
+                    GuessTheNumber guessTheNumber = new GuessTheNumber();
+                    guessTheNumber.GuessNumber();
                 }
                 else if (userMenuSelection == 3)
                 {
