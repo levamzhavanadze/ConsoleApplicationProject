@@ -13,22 +13,23 @@ namespace ConsoleApplicationProject
         //public decimal _b;
 
 
-        public decimal Sum(decimal a, decimal b)
+        public string Sum(decimal a, decimal b)
         {
-            return a + b;
+            return $"{a} + {b} = {a+b}";
         }
-        public decimal Sub(decimal a, decimal b)
+        public string Sub(decimal a, decimal b)
         {
-            return a - b;
+            return $"{a} - {b} = {a-b}";
         }
-        public decimal Mult(decimal a, decimal b)
+        public string Mult(decimal a, decimal b)
         {
-            return a * b;
+            return $"{a} * {b} = {a*b}";
         }
-        public decimal Div(decimal a, decimal b)
+        public string Div(decimal a, decimal b)
         {
-            return a / b;
+            return $"{a} / {b} = {a/b}";
         }
+  
 
     }
 }

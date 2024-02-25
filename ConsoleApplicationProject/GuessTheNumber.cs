@@ -3,8 +3,5 @@
 public class GuessTheNumber
 
 {
-	public Class1()
-	{
 
-	}
 }
