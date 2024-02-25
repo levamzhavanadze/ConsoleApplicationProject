@@ -38,11 +38,11 @@ namespace ConsoleApplicationProject
             {
                 Console.WriteLine(calculator.Sub(_a, _b));
             }
-            if (usrOperator == "*")
+            else if (usrOperator == "*")
             {
                 Console.WriteLine(calculator.Mult(_a, _b));
             }
-            if (usrOperator == "/")
+            else if (usrOperator == "/")
             {
                 if (_b == 0)
                 {
@@ -63,7 +63,6 @@ namespace ConsoleApplicationProject
                     Console.WriteLine(calculator.Div(_a, _b));
 
                 }
-
             }
 
         }

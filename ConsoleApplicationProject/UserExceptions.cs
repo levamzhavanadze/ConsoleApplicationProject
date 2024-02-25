@@ -6,28 +6,26 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplicationProject
 {
-    internal class UserExceptions : ApplicationException
+    internal class MenuWrongSelection : ApplicationException
 
     {
 
         public string _message;
 
 
-        public UserExceptions()
+        public MenuWrongSelection()
         {
-            _message = "Not Correct Operator";
+            _message = "Please select one of the options from menu";
         }
 
 
-        //public override string Message
-        //{
-        //    get
-        //    {
-        //        CalculatorUI calculatorUI = new CalculatorUI();
-                
-        //        return ca
-        //    }
-        //}
+        public override string Message
+        {
+            get
+            {
+                return _message;
+            }
+        }
 
     }
 }

@@ -65,5 +65,24 @@ namespace ConsoleApplicationProject
             }
             return usrOperator;
         }
+
+        /// <summary>
+        /// Method is helper method where user is asked to enter intager value to continue process
+        /// </summary>
+        /// <returns>targetInt</returns>
+        public int ParseUserInputToInt(string usrInput)
+        {
+            var _userInput = usrInput;
+            int targetInt = -99999999;
+
+            //Until user entered value is not integer, user will be in this loop. Exception is default value of variable -99999999
+            while (int.TryParse(_userInput, out targetInt) == false || targetInt == -99999999)
+            {
+                Console.WriteLine($"Please enter valid input, you entered: <{_userInput}>");
+                _userInput = Console.ReadLine();
+            }
+            return targetInt;
+        }
+
     }
 }
