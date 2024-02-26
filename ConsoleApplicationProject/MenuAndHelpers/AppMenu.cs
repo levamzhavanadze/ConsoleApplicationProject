@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using ConsoleApplicationProject.Calculator;
+using ConsoleApplicationProject.GuessTheNumbers;
 
-namespace ConsoleApplicationProject
+namespace ConsoleApplicationProject.MenuAndHelpers
 {
     /// <summary>
     /// This class represents main entrance point for user into the application, where user can choose needed program.
     /// </summary>
-    internal class AppMenu
+    public class AppMenu : Validators
     {
         /// <summary>
         /// Asking user to choose program
@@ -28,21 +30,21 @@ namespace ConsoleApplicationProject
             //Handle user selection
             try
             {
-                Validators validators = new Validators();
-                var userInput = validators.ValidateUserInputOnEmptyString();
-                var userMenuSelection = validators.ParseUserInputToInt(userInput);
+                var userInput = ValidateUserInputOnEmptyString();
+                var userMenuSelection = ParseUserInputToInt(userInput);
 
                 if (userMenuSelection == 1)
                 {
                     CalculatorUI calculator = new CalculatorUI();
                     calculator.UserUI();
-                    MenuHelper();
+                    ReturnToMainMenu();
 
                 }
                 else if (userMenuSelection == 2)
                 {
                     GuessTheNumber guessTheNumber = new GuessTheNumber();
                     guessTheNumber.GuessNumber();
+                    ReturnToMainMenu();
                 }
                 else if (userMenuSelection == 3)
                 {
@@ -52,7 +54,7 @@ namespace ConsoleApplicationProject
                 }
                 else if (userMenuSelection == 5)
                 {
-                }     
+                }
                 else if (userMenuSelection == 6)
                 {
                     Console.WriteLine("Thank you for using our Console App.");
@@ -74,12 +76,9 @@ namespace ConsoleApplicationProject
                 Console.WriteLine(wrongMenuItem.Message);
                 Menu();
             }
-
-
         }
 
-
-        public void MenuHelper()
+        public void ReturnToMainMenu()
         {
             Console.WriteLine("Thank you, you have been returned to main menu, please select next action.");
             Menu();

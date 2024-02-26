@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplicationProject
+namespace ConsoleApplicationProject.MenuAndHelpers
 {
     /// <summary>
     /// This class is responsible to handle exception of AppMenu Class.

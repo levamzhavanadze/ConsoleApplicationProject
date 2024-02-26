@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplicationProject
+namespace ConsoleApplicationProject.MenuAndHelpers
 {
     /// <summary>
     /// This class is responsible for reusable validations
     /// </summary>
-    internal class Validators
+    public class Validators
     {
         /// <summary>
         /// Method validates if user input is decimal number or not.
         /// </summary>
         /// <returns>Decimal/returns>
-        public decimal DecimalUserInputValidation()
+        public virtual decimal DecimalUserInputValidation()
         {
             var userInput = Console.ReadLine();
             decimal _a;
@@ -33,7 +33,7 @@ namespace ConsoleApplicationProject
         /// Method validates if user input is null or only spaces
         /// </summary>
         /// <returns>String</returns>
-        public string ValidateUserInputOnEmptyString()
+        public virtual string ValidateUserInputOnEmptyString()
         {
             var userInput = Console.ReadLine();
 
@@ -49,7 +49,7 @@ namespace ConsoleApplicationProject
         /// Method is helper method where user is asked to enter intager value to continue process
         /// </summary>
         /// <returns>targetInt</returns>
-        public int ParseUserInputToInt(string usrInput)
+        public virtual int ParseUserInputToInt(string usrInput)
         {
             var _userInput = usrInput;
             int targetInt = -2147483648;
@@ -68,7 +68,7 @@ namespace ConsoleApplicationProject
         /// </summary>
         /// <param name="usrOperator"></param>
         /// <returns>String</returns>
-        public string CalculatorOperatorValidation(string usrOperator)
+        public virtual string CalculatorOperatorValidation(string usrOperator)
         {
             //Check if user entered string is one character or it is some string. If length is more then 1 asking user to enter predefined math operator character
             while (usrOperator.Length != 1)
@@ -92,7 +92,7 @@ namespace ConsoleApplicationProject
             {
                 Console.WriteLine("Wrong operator, please enter correct one: + - * /");
                 usrOperator = ValidateUserInputOnEmptyString();
-                input = (int)char.Parse(usrOperator);
+                input = char.Parse(usrOperator);
                 if (input != 47 || input != 42 || input != 45 || input != 43)
                 {
                     wrongOperator = false;
@@ -105,7 +105,7 @@ namespace ConsoleApplicationProject
         /// Method is asking user to input Int
         /// </summary>
         /// <returns>Int</returns>
-        public int AskUserToEnterInt()
+        public virtual int AskUserToEnterInt()
         {
             var usrInput = ValidateUserInputOnEmptyString();
             int parsedInt = ParseUserInputToInt(usrInput);
