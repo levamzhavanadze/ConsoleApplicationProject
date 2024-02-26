@@ -6,6 +6,7 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using ConsoleApplicationProject.Calculator;
 using ConsoleApplicationProject.GuessTheNumbers;
+using ConsoleApplicationProject.Hangman;
 
 namespace ConsoleApplicationProject.MenuAndHelpers
 {
@@ -48,6 +49,8 @@ namespace ConsoleApplicationProject.MenuAndHelpers
                 }
                 else if (userMenuSelection == 3)
                 {
+                    HangmanUI hangmanUI = new HangmanUI();
+                    hangmanUI.GuessTheWord();
                 }
                 else if (userMenuSelection == 4)
                 {

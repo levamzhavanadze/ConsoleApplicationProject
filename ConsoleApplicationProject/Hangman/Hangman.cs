@@ -22,20 +22,24 @@ namespace ConsoleApplicationProject.Hangman
 
         public Hangman()
         {
-            SelectingWordToGuess();
+          
             GenerateArrayOfGuessWord();
         }
 
         public char[] SelectingWordToGuess()
 
         {
-            WordToGuess = "gama";
-            return WordToGuess.ToCharArray();
+            Random random = new Random();
+            WordsToGuess wordsToGuess = new WordsToGuess();
+            int wordIndext = random.Next(0, wordsToGuess.LengthOfTheWordsList());
+
+            WordToGuess = wordsToGuess.GetWord(wordIndext);
+            return WordToGuess.ToCharArray(); 
 
         }
         public void GenerateArrayOfGuessWord()
         {
-            //   SymbolsToGuess = new char[WordToGuess.Length];
+            
             //Filling array based on WordToGuess property
             SymbolsToGuess = SelectingWordToGuess();
 
