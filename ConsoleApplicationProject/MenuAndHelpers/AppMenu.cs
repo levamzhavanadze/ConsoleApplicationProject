@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ConsoleApplicationProject.Calculator;
 using ConsoleApplicationProject.GuessTheNumbers;
 using ConsoleApplicationProject.Hangman;
+using ConsoleApplicationProject.LanguageDictionary;
 
 namespace ConsoleApplicationProject.MenuAndHelpers
 {
@@ -24,7 +25,7 @@ namespace ConsoleApplicationProject.MenuAndHelpers
                 "\n\t1. Calculator" +
                 "\n\t2. Guess The Number" +
                 "\n\t3. Hangman" +
-                "\n\t4. " +
+                "\n\t4. Language Dictionary" +
                 "\n\t5. " +
                 "\n\t6. Exit"
                 );
@@ -54,9 +55,12 @@ namespace ConsoleApplicationProject.MenuAndHelpers
                 }
                 else if (userMenuSelection == 4)
                 {
+                    LanguageUI languageUI = new LanguageUI();
+                    languageUI.LanguageDictionary();
                 }
                 else if (userMenuSelection == 5)
                 {
+                    Console.WriteLine("Sorry, functionality is not ready, try later.");
                 }
                 else if (userMenuSelection == 6)
                 {
